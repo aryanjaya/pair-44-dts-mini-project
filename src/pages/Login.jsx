@@ -7,7 +7,10 @@ const Login = () => {
     <Container className="bg-dark">
       <Row className="g-0 min-vh-100 align-items-center">
         {/* Image Placeholder */}
-        <Col className="d-none d-md-block">
+        <Col
+          id="login-image-hero"
+          className="d-none d-md-block position-relative"
+        >
           <Image src={ProfilePicture} fluid />
         </Col>
         {/* Login Form */}
