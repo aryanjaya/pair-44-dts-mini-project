@@ -16,7 +16,16 @@ const Login = () => {
         {/* Login Form */}
         <Col className="d-flex justify-content-center">
           <div className="bg-dark w-75">
+            <div className="mb-5 d-block d-md-none">
+              <h1 className="display-2 text-light">Welcome!</h1>
+              <p className="lead text-secondary">
+                Please login with your account
+              </p>
+            </div>
             <LoginForm />
+            <p className="text-muted text-center mt-4">
+              Don't have account? <span className="text-light">Create one</span>
+            </p>
           </div>
         </Col>
       </Row>
