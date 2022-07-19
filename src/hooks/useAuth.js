@@ -8,18 +8,26 @@ import { auth } from "../utils/firebase";
 
 export function useAuth() {
   const [user, setUser] = useState(null);
+  const [userLoad, setUserLoad] = useState(true);
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => setUser(user));
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+      setUserLoad(false);
+    });
   }, []);
 
-  return user;
+  return { user, userLoad };
 }
 
 export function register(email, password) {
-  createUserWithEmailAndPassword(auth, email, password);
+  return createUserWithEmailAndPassword(auth, email, password);
 }
 
 export function login(email, password) {
-  signInWithEmailAndPassword(auth, email, password);
+  return signInWithEmailAndPassword(auth, email, password);
 }
