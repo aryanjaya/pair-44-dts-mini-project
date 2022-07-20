@@ -11,3 +11,7 @@
     rgba(33, 37, 41, 1) 80%
   );
 }
+
+a {
+  text-decoration: none;
+}

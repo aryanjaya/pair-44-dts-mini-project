@@ -1,8 +1,25 @@
+import { useState } from "react";
 import { Form, Button, FloatingLabel } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "../hooks/useUser";
 
 const LoginForm = () => {
+  const [email, setEmail] = useState("");
+  const [pwd, setPwd] = useState("");
+  const navigate = useNavigate();
+  const { login } = useUser();
+
+  async function handleLogin(e) {
+    e.preventDefault();
+    try {
+      await login(email, pwd);
+      navigate("/", { replace: true });
+    } catch (err) {
+      console.log(err);
+    }
+  }
   return (
-    <Form>
+    <Form onSubmit={handleLogin}>
       <FloatingLabel
         controlId="floatingInput"
         label="Email"
@@ -12,6 +29,8 @@ const LoginForm = () => {
           type="email"
           placeholder="name@example.com"
           className="bg-dark text-light"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
       </FloatingLabel>
       <FloatingLabel
@@ -23,6 +42,8 @@ const LoginForm = () => {
           type="password"
           placeholder="Password"
           className="bg-dark text-light"
+          value={pwd}
+          onChange={(e) => setPwd(e.target.value)}
         />
       </FloatingLabel>
 
