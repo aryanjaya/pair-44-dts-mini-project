@@ -5,7 +5,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 
 const NavbarMenu = () => {
   return (
-    <Navbar bg="dark" variant="dark" expand="md">
+    <Navbar bg="dark" variant="dark" expand="md" className="bg-darker">
       <Container>
         <Navbar.Brand href="#">Movie Catalog</Navbar.Brand>
         <Navbar.Toggle aria-controls="side-navbar" />
