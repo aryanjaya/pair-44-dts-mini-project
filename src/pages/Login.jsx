@@ -1,4 +1,5 @@
 import { Container, Row, Col, Image } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import ProfilePicture from "../assets/ProfilePicture.png";
 import LoginForm from "../components/LoginForm";
 
@@ -24,7 +25,10 @@ const Login = () => {
             </div>
             <LoginForm />
             <p className="text-muted text-center mt-4">
-              Don't have account? <span className="text-light">Create one</span>
+              Don't have account?{" "}
+              <Link to="/register">
+                <span className="text-light">Create one</span>
+              </Link>
             </p>
           </div>
         </Col>
