@@ -2,12 +2,15 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
+import { Link } from "react-router-dom";
 
 const NavbarMenu = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="md" className="bg-darker">
       <Container>
-        <Navbar.Brand href="#">Movie Catalog</Navbar.Brand>
+        <Link to="/">
+          <Navbar.Brand>Movie Catalog</Navbar.Brand>
+        </Link>
         <Navbar.Toggle aria-controls="side-navbar" />
         <Navbar.Offcanvas
           id="side-navbar"

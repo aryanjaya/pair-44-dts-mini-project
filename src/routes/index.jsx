@@ -1,5 +1,6 @@
 import { useRoutes } from "react-router-dom";
 import App from "../App";
+import MovieDetail from "../components/movie/MovieDetail";
 
 // import ProtectedRoutes from "./ProtectedRoutes";
 import HomePage from "../pages/HomePage";
@@ -15,7 +16,19 @@ export default function Routes() {
         {
           path: "/",
           element: <HomePage />,
-        }
+        },
+        {
+          path: "/movie/:movieId",
+          element: <MovieDetail />,
+        },
+        {
+          path: "*",
+          element: (
+            <main className="text-center mt-5">
+              <h2>There's nothing here!</h2>
+            </main>
+          ),
+        },
       ],
     },
     {
