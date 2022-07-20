@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Button from "react-bootstrap/Button";
 import MovieList from "../components/movie/MovieList";
 import MovieApi from "../services/tmdb/MovieApi";
 
