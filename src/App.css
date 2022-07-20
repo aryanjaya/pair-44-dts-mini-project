@@ -48,3 +48,21 @@ body {
 .rating-star {
   color: rgb(245, 197, 24);
 }
+
+.card-title a {
+  color: #fff;
+}
+
+.release-date {
+  opacity: 0.8;
+  font-weight: 400;
+}
+
+.movie-detail-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: center;
+  box-sizing: border-box;
+  padding-left: 40px;
+}

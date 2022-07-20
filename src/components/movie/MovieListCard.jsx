@@ -1,6 +1,7 @@
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
 import TmdbApi from "../../services/tmdb";
 
 const MovieListCard = ({ movie }) => {
@@ -10,17 +11,18 @@ const MovieListCard = ({ movie }) => {
     return date.getFullYear();
   };
 
-  const getImage = (path) => TmdbApi.getImage(path, 'w342');
+  const getImage = (path) => TmdbApi.getImage(path, "w342");
 
   return (
     <Card bg="darker" text="white">
-      <Card.Img
-        variant="top"
-        src={getImage(movie.poster_path)}
-      ></Card.Img>
+      <Link to={`/movie/${movie.id}`}>
+        <Card.Img variant="top" src={getImage(movie.poster_path)}></Card.Img>
+      </Link>
       <Card.Body>
-        <Card.Title>{movie.title}</Card.Title>
-        <Card.Subtitle>
+        <Card.Title>
+          <Link to={`/movie/${movie.id}`}>{movie.title}</Link>
+        </Card.Title>
+        <Card.Subtitle className="mt-2">
           <div className="d-flex justify-content-between">
             <span>
               <FontAwesomeIcon icon={faStar} className="rating-star" />{" "}
