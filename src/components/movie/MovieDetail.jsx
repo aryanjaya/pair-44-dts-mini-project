@@ -1,4 +1,7 @@
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
+import { Badge } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
@@ -42,7 +45,7 @@ const MovieDetail = () => {
     <section>
       <div>
         <Row>
-          <Col sm="3">
+          <Col sm="3" className="movie-detail-poster">
             <Image src={getImage(movie.poster_path)} fluid rounded />
           </Col>
           <Col className="d-flex">
@@ -55,6 +58,26 @@ const MovieDetail = () => {
                       ({getYear(movie.release_date)})
                     </span>
                   </h2>
+                </div>
+                <div className="movie-detail-subtitle">
+                  <span>
+                    <FontAwesomeIcon icon={faStar} className="rating-star" />{" "}
+                    {movie.vote_average}
+                  </span>
+                </div>
+                <div className="movie-detail-intro mt-3">
+                  <h3 className="tagline">{movie.tagline}</h3>
+                  <h3>Overview</h3>
+                  <div className="overview">
+                    <p>{movie.overview}</p>
+                  </div>
+                  <div className="genre">
+                    {movie.genres.map((genre) => (
+                      <Badge pill bg="light" text="dark" key={genre.id}>
+                        {genre.name}
+                      </Badge>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
