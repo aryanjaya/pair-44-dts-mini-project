@@ -2,7 +2,7 @@ import { useRoutes } from "react-router-dom";
 import App from "../App";
 import MovieDetail from "../components/movie/MovieDetail";
 
-// import ProtectedRoutes from "./ProtectedRoutes";
+import ProtectedRoutes from "./ProtectedRoutes";
 import HomePage from "../pages/HomePage";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
@@ -19,7 +19,11 @@ export default function Routes() {
         },
         {
           path: "/movie/:movieId",
-          element: <MovieDetail />,
+          element: (
+            <ProtectedRoutes>
+              <MovieDetail />
+            </ProtectedRoutes>
+          ),
         },
         {
           path: "*",
