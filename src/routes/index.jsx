@@ -37,11 +37,19 @@ export default function Routes() {
     },
     {
       path: "/login",
-      element: <Login />,
+      element: (
+        <ProtectedRoutes noAuthUser={true}>
+          <Login />
+        </ProtectedRoutes>
+      ),
     },
     {
       path: "/register",
-      element: <Register />,
+      element: (
+        <ProtectedRoutes noAuthUser={true}>
+          <Register />
+        </ProtectedRoutes>
+      ),
     },
   ]);
 
